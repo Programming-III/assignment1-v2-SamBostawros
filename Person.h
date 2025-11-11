@@ -9,9 +9,6 @@ private:
     string name;
     int id;
 protected:
-    string getName(){
-        return this -> name;
-    }
     void setName(string name){
         this -> name = name;
     }
@@ -19,6 +16,12 @@ protected:
         this -> id = id;
     }
 public:
+    string getName(){
+        return this -> name;
+    }
+    int getID(){
+        return this -> id;
+    }
     Person(){
         name = "No Name";
         id = -1;
