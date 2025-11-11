@@ -9,6 +9,9 @@ private:
     string name;
     int id;
 protected:
+    string getName(){
+        return this -> name;
+    }
     void setName(string name){
         this -> name = name;
     }
