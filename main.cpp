@@ -36,7 +36,7 @@ void Course::displayCourseInfo() {
     if(currentStudents > 0) {
         cout << "Currently Enrolled: ";
         for (int i = 0; i < currentStudents; i++){
-            cout << students[i].getName() << "(ID: " << students[i].getID() << ")";
+            cout << students[i].getName() << " (ID: " << students[i].getID() << ")";
             if(i != currentStudents - 1) {
                 cout << ", ";
             }
