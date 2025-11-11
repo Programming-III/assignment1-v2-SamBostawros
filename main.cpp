@@ -1,48 +1,64 @@
 #include <iostream>
-#include <string>
 #include "Person.h"
 #include "Student.h"
 #include "Instructor.h"
 #include "Course.h"
-
-
 using namespace std;
 
-// ==================== Person Class Implementation =========================
+// Person Class Implementaion
+void Person::display() {
+    cout << "Name: " << name << "   ID: " << id << endl;
+}
 
+// Student Class Implementaion
+void Student::display() {
+    cout << "Student Info: " << endl;
+    cout << "Name: " << this->getName() << endl;
+    cout << "Year: " << yearLevel << endl << "Major: " << major << endl;
+}
 
+// Instructor Class Implementaion
+void Instructor::display() {
+    cout << "Instructor Info: " << endl;
+    cout << "Name: " << this->getName() << endl;
+    cout << "Department: " << department << endl << "Experience: " << experienceYears << " years" << endl;
+}
 
+// Course Class Implementaion
+void Course::addStudent(const Student &s) {
+    if(currentStudents == maxStudents){
+        cout << "There course is at full capacity. Cannot add the student." << endl;
+        return;
+    }
+    students[currentStudents] = s;
+    currentStudents++;
+}
 
+void Course::displayCourseInfo() {
+    cout << "Course: " << courseCode << " - " << courseName << endl;
+    cout << "Max Students: " << maxStudents << endl;
+    if(currentStudents > 0) {
+        cout << "Currently Enrolled: ";
+        for (int i = 0; i < currentStudents; i++){
+            cout << students[i].getName() << "(ID: " << students[i].getID() << ")";
+            cout << endl;
+        }
+    }
+    else{
+        cout << "No students are currently enrolled in the course." << endl;
+    }
+}
 
+// Main Function Implementation
+int main(){
+    Course c("CS101", "Introduction to Programming", 3);
+    Student s("Omar Nabil", 2202, 2, "Informatics");
+    c.addStudent(s);
+    Instructor i("Dr. Lina Khaled", 1000, "Computer Science", 5);
 
+    c.displayCourseInfo();
+    i.display();
+    s.display();
 
-
-// ==================== Student Class Implementation ====================
-
-
-
-
-
-
-// ==================== Instructor Class Implementation ====================
-
-
-
-
-
-
-// ==================== Course Class Implementation ====================
-
-
-
-
-
-
-
-
-// ==================== Main Function ====================
-int main() {
-   
-    
     return 0;
 }
